@@ -1,3 +1,7 @@
+def getBranchName(){
+	return scm.branches[0].name
+}
+
 pipeline {
 	agent any 
 	tools {

@@ -55,7 +55,7 @@ pipeline {
 				script{
 					try {
 						echo "Branch Name is : ${BRANCH_NAME}"
-						if (BRANCH_NAME == "*/master"){
+						if (BRANCH_NAME == "*/main"){
 							withCredentials([usernamePassword(credentialsId: "docker-hub", usernameVariable: "DOCKER_USERNAME", passwordVariable: "DOCKER_PASSWORD")]){																							
 								sh "echo ${DOCKER_PASSWORD} | docker login -u ${DOCKER_USERNAME} --password-stdin"
 								sh "docker build -t ${DOCKER_USERNAME}/${DOCKER_IMAGE}:${DOCKER_TAG} . --no-cache"

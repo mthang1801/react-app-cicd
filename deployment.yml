@@ -7,15 +7,20 @@ metadata:
   namespace: react-app-cicd
 spec: 
   replicas: 2 
-  matchLabels: 
-    app : react-app-cicd
+  selector: 
+    matchLabels: 
+      app: react-app-cicd
   template: 
-    containers: 
-    - name: react-app-container
-      image: mthang1801/react-app-cicd
-      ports:
-        - containerPort: 80
-          name: http-web-svc
+    metadata: 
+      labels: 
+        app: react-app-cicd
+    spec:
+      containers: 
+      - name: react-app-container
+        image: mthang1801/react-app-cicd
+        ports:
+          - containerPort: 80
+            name: http-web-svc
     
 ---
 

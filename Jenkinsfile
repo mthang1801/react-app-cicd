@@ -49,7 +49,7 @@ pipeline {
            environment { 
 				DOCKER_TAG="${env.BUILD_NUMBER}"
 				DOCKER_IMAGE="react-app-cicd"	
-				BRANCH_NAME = getGitBranchName()										
+				BRANCH_NAME = getBranchName()										
 			}		
 			steps {			
 				script{

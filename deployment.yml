@@ -1,0 +1,34 @@
+apiVersion : apps/v1 
+kind: Deployment 
+metadata: 
+  name: react-app-cicd-deployment
+  labels: 
+    app: react-app-cicd
+spec: 
+  replicas: 2 
+  matchLabels: 
+    app : react-app-cicd
+  template: 
+    containers: 
+    - name: react-app-container
+      image: mthang1801/react-app-cicd
+      ports:
+        - containerPort: 80
+          name: http-web-svc
+    
+---
+
+apiVersion: v1 
+kind: Service
+metadata: 
+  name: react-app-cicd-svc
+spec:
+  selector : 
+    app: react-app-cicd
+  type: NodePort
+  ports:
+  - name: react-app-cicd-service
+    protocol: TCP 
+    port: 80
+    targetPort: http-web-svc
+    nodePort: 30000

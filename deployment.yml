@@ -17,7 +17,7 @@ spec:
     spec:
       containers: 
       - name: react-app-container
-        image: mthang1801/react-app-cicd
+        image: mthang1801/react-app-cicd:latest
         ports:
           - containerPort: 80
             name: http-web-svc

@@ -85,7 +85,7 @@ pipeline {
 	}
 
 	post {
-		sucess {
+		success {
 			echo "Build Complete"
 		}
 		failure {

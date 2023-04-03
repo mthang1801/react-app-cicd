@@ -63,8 +63,7 @@ pipeline {
 								sh "docker images | grep ${DOCKER_IMAGE}"														
 								sh "docker push ${DOCKER_USERNAME}/${DOCKER_IMAGE}:${DOCKER_TAG}"					
 								sh "docker push ${DOCKER_USERNAME}/${DOCKER_IMAGE}:latest"										
-								sh "docker rmi -f ${DOCKER_USERNAME}/${DOCKER_IMAGE}:${DOCKER_TAG}"
-								sh "docker rmi -f ${DOCKER_USERNAME}/${DOCKER_IMAGE}:latest"
+								sh "docker rmi -f ${DOCKER_USERNAME}/${DOCKER_IMAGE}:${DOCKER_TAG}"								
 							}										
 						}
 						buildSuccess = true

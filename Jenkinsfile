@@ -11,6 +11,7 @@ pipeline {
 		buildUser = ''        
         dockerImage = ''
         dockerImageName = 'react-app'
+		buildSuccess = false
 	}
 	stages{
 		stage("Checkout") {
@@ -44,15 +45,7 @@ pipeline {
 			}			
 		}  
 
-        stage("Build Image") {
-            steps{ 
-                script {
-                    dockerImage = docker.build dockerImageName
-                }
-            }
-        }
-
-        stage("Push Image"){
+        stage("Build and Push Image"){
            environment { 
 				DOCKER_TAG="${env.BUILD_NUMBER}"
 				DOCKER_IMAGE="react-app-cicd"	

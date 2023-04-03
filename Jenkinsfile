@@ -83,4 +83,13 @@ pipeline {
 			}
 		}
 	}
+
+	post {
+		sucess {
+			echo "Build Complete"
+		}
+		failure {
+			echo "Build Fail"
+		}
+	}
 }
